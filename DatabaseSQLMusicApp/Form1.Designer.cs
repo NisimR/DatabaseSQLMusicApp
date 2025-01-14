@@ -28,18 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(120, 87);
+            button1.Name = "button1";
+            button1.Size = new Size(227, 58);
+            button1.TabIndex = 0;
+            button1.Text = "Add Albums";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(389, 87);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 102;
+            dataGridView1.Size = new Size(1544, 320);
+            dataGridView1.TabIndex = 1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1558, 1010);
+            ClientSize = new Size(2085, 1010);
+            Controls.Add(dataGridView1);
+            Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
+        private DataGridView dataGridView1;
     }
 }
