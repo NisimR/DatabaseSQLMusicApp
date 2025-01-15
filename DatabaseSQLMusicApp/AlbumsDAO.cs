@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseSQLMusicApp
 {
-    internal class AlbumsDAO
+    public class AlbumsDAO
     {
         //public List <Album> albums = new List<Album>();
 
@@ -23,6 +23,8 @@ namespace DatabaseSQLMusicApp
 
             MySqlConnection connection = new MySqlConnection (connectionString);
             connection.Open ();
+
+            
 
             //define the sql statement to fetch all albums
 
@@ -54,6 +56,83 @@ namespace DatabaseSQLMusicApp
 
             return returnThease;
 
+        }
+
+        public List<Album> searchTitles(String searchTerm)
+        {
+            //start with am empty list
+            List<Album> returnThease = new List<Album>();
+
+            String searchWildPhrase = "%" + searchTerm + "%";
+
+            //connect to the mysql server
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            //define the sql statement to fetch all albums
+
+            MySqlCommand command = new MySqlCommand();
+
+            command.CommandText = "SELECT ID, ALBUM_TITLE, " +
+                "ARTIST, YEAR, IMAGE_NAME, DESCRIPTION " +
+                "FROM ALBUMS WHERE ALBUM_TITLE LIKE @search";
+
+            command.Parameters.AddWithValue("@search", searchWildPhrase);
+            command.Connection = connection;
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+
+                {
+                    Album a = new Album
+                    {
+                        ID = reader.GetInt32(0),
+                        AlbumName = reader.GetString(1),
+                        ArtistName = reader.GetString(2),
+                        Year = reader.GetInt32(3),
+                        ImageURL = reader.GetString(4),
+                        Description = reader.GetString(5)
+
+                    };
+
+                    returnThease.Add(a);
+
+
+                }
+            }
+
+            connection.Close();
+
+            return returnThease;
+
+        }
+
+        internal int addOneAlbum(Album album)
+        {
+            //connect to the mysql server
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+
+
+            //define the sql statement to fetch all albums
+
+            MySqlCommand command = new MySqlCommand("INSERT INTO `albums`(" +
+                " `ALBUM_TITLE`, `ARTIST`, `YEAR`, `IMAGE_NAME`, `DESCRIPTION`) " +
+                "VALUES (@albumtitle,@artist,@year, @imageURL, @description )", connection);
+
+            command.Parameters.AddWithValue("@albumtitle", album.AlbumName);
+            command.Parameters.AddWithValue("@artist", album.AlbumName);
+            command.Parameters.AddWithValue("@year", album.AlbumName);
+            command.Parameters.AddWithValue("@imageURL", album.AlbumName);
+            command.Parameters.AddWithValue("@description", album.AlbumName);
+
+            connection.Close();
+
+            return returnThease;
         }
     }
 }
