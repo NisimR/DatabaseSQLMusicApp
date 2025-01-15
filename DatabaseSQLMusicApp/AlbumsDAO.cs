@@ -125,14 +125,16 @@ namespace DatabaseSQLMusicApp
                 "VALUES (@albumtitle,@artist,@year, @imageURL, @description )", connection);
 
             command.Parameters.AddWithValue("@albumtitle", album.AlbumName);
-            command.Parameters.AddWithValue("@artist", album.AlbumName);
-            command.Parameters.AddWithValue("@year", album.AlbumName);
-            command.Parameters.AddWithValue("@imageURL", album.AlbumName);
-            command.Parameters.AddWithValue("@description", album.AlbumName);
+            command.Parameters.AddWithValue("@artist", album.ArtistName);
+            command.Parameters.AddWithValue("@year", album.Year);
+            command.Parameters.AddWithValue("@imageURL", album.ImageURL);
+            command.Parameters.AddWithValue("@description", album.Description);
+
+            int newRows = command.ExecuteNonQuery();
 
             connection.Close();
 
-            return returnThease;
+            return newRows;
         }
     }
 }

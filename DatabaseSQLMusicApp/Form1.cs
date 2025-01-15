@@ -99,6 +99,7 @@ namespace DatabaseSQLMusicApp
 
             AlbumsDAO albumsDAO = new AlbumsDAO();
             int result = albumsDAO.addOneAlbum(album);
+            MessageBox.Show(result + " new row(s) inserted");
         }
 
         private void txt_AlbumArtist_TextChanged(object sender, EventArgs e)
