@@ -1,16 +1,11 @@
-﻿namespace DatabaseSQLMusicApp
+﻿using System.Windows.Forms;
+
+namespace DatabaseSQLMusicApp
 {
-    partial class Form1
+    partial class Form2
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,14 +15,9 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
+
             button1 = new Button();
             dataGridView1 = new DataGridView();
             button2 = new Button();
@@ -239,17 +229,56 @@
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Controls.Add(groupBox1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "DB Framework";
+            Text = "DB Framework";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
-        }
 
-        #endregion
+            //button1 = new Button();
+            //dataGridView1 = new DataGridView();
+            //button2 = new Button();
+            //textBox1 = new TextBox();
+            //pictureBox1 = new PictureBox();
+            //groupBox1 = new GroupBox();
+            //button3 = new Button();
+            //txt_description = new TextBox();
+            //txt_ImageURL = new TextBox();
+            //txt_albumYear = new TextBox();
+            //txt_albumArtist = new TextBox();
+            //txt_albumName = new TextBox();
+            //label1 = new Label();
+            //label5 = new Label();
+            //label4 = new Label();
+            //label3 = new Label();
+            //label2 = new Label();
+
+            //((System.ComponentModel.ISupportInitialize)(dataGridView1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            //groupBox1.SuspendLayout();
+            //SuspendLayout();
+
+            //// Setup controls (the same as in your original example, corrected for consistency)
+            //button1.Location = new Point(747, 109);
+            //button1.Name = "button1";
+            //button1.Size = new Size(227, 58);
+            //button1.TabIndex = 0;
+            //button1.Text = "Load Albums";
+            //button1.UseVisualStyleBackColor = true;
+            //button1.Click += button1_Click;
+
+            //// Add remaining control initializations as in your original code...
+
+            //((System.ComponentModel.ISupportInitialize)(dataGridView1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            //groupBox1.ResumeLayout(false);
+            //groupBox1.PerformLayout();
+            //ResumeLayout(false);
+            //PerformLayout();
+        }
 
         private Button button1;
         private DataGridView dataGridView1;
@@ -269,5 +298,25 @@
         private Button button3;
         private TextBox txt_description;
         private Button button4;
+
+        //private Button button1;
+        //private Button button2;
+        //private Button button3;
+        //private DataGridView dataGridView1;
+        //private PictureBox pictureBox1;
+        //private TextBox textBox1;
+        //private GroupBox groupBox1;
+        //private TextBox txt_albumName;
+        //private TextBox txt_albumArtist;
+        //private TextBox txt_albumYear;
+        //private TextBox txt_ImageURL;
+        //private TextBox txt_description;
+        //private Label label1;
+        //private Label label2;
+        //private Label label3;
+        //private Label label4;
+        //private Label label5;
+
+       
     }
 }

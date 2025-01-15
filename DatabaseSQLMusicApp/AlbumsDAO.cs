@@ -47,8 +47,7 @@ namespace DatabaseSQLMusicApp
                     };
 
                     returnThease.Add(a);
-                
-                
+
                 }
             }
 
