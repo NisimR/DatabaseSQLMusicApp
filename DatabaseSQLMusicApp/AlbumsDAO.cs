@@ -11,8 +11,9 @@ namespace DatabaseSQLMusicApp
     public class AlbumsDAO
     {
         //public List <Album> albums = new List<Album>();
-
-        string connectionString = "datasource= localhost;port=3306;username=root;password=root;database=music2;";
+        //Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;database=music2;
+        string connectionString = "datasource= localhost;port=3306;username=root;password=12345678;database=music2;";
+        //string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Connect Timeout=30;database=music2;";
 
         public List<Album> getAllAlbums()
         {
