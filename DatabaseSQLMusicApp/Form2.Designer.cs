@@ -24,7 +24,7 @@ namespace DatabaseSQLMusicApp
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             groupBox1 = new GroupBox();
-            button3 = new Button();
+            button333 = new Button();
             txt_description = new TextBox();
             txt_ImageURL = new TextBox();
             txt_albumYear = new TextBox();
@@ -92,7 +92,7 @@ namespace DatabaseSQLMusicApp
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(button333);
             groupBox1.Controls.Add(txt_description);
             groupBox1.Controls.Add(txt_ImageURL);
             groupBox1.Controls.Add(txt_albumYear);
@@ -108,18 +108,22 @@ namespace DatabaseSQLMusicApp
             groupBox1.Size = new Size(591, 523);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Add Album";
+            groupBox1.Text = "Add Album222";
             groupBox1.Enter += groupBox1_Enter;
             // 
             // button3
             // 
-            button3.Location = new Point(373, 398);
-            button3.Name = "button3";
-            button3.Size = new Size(188, 58);
-            button3.TabIndex = 10;
-            button3.Text = "Add";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            button333.Location = new Point(373, 398);
+            button333.Name = "button3";
+            button333.Size = new Size(188, 58);
+            button333.TabIndex = 10;
+            button333.Text = "Add222";
+            button333.UseVisualStyleBackColor = true;
+            //button333.Click += button_add_toDB;
+            //button333.Click -= button3_Click;
+
+            button333.Click += new EventHandler(button_add_toDB);
+
             // 
             // txt_description
             // 
@@ -295,7 +299,7 @@ namespace DatabaseSQLMusicApp
         private TextBox txt_albumName;
         private TextBox txt_ImageURL;
         private TextBox txt_albumYear;
-        private Button button3;
+        private Button button333;
         private TextBox txt_description;
         private Button button4;
 

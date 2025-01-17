@@ -23,7 +23,7 @@ namespace DatabaseSQLMusicApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AlbumsDAO albumsDAO = new AlbumsDAO();
+            AlbumsDAO_Framework albumsDAO = new AlbumsDAO_Framework();
 
 
             albumBindingSource.DataSource = albumsDAO.getAllAlbums();
@@ -35,7 +35,7 @@ namespace DatabaseSQLMusicApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AlbumsDAO albumsDAO = new AlbumsDAO();
+            AlbumsDAO_Framework albumsDAO = new AlbumsDAO_Framework();
 
 
             albumBindingSource.DataSource = albumsDAO.searchTitles(textBox1.Text);
@@ -97,11 +97,11 @@ namespace DatabaseSQLMusicApp
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button_add_toDB(object sender, EventArgs e)
         {
             //add a new item to the database
 
-            Album album = new Album
+            Album2 album = new Album2
             {
                 AlbumName = txt_albumName.Text,
                 ArtistName = txt_albumArtist.Text,
@@ -110,9 +110,9 @@ namespace DatabaseSQLMusicApp
                 Description = txt_description.Text,
             };
 
-            AlbumsDAO albumsDAO = new AlbumsDAO();
-            int result = albumsDAO.addOneAlbum(album);
-            MessageBox.Show(result + " new row(s) inserted");
+            AlbumsDAO_Framework albumsDAO = new AlbumsDAO_Framework();
+             albumsDAO.addOneAlbum(album);
+            MessageBox.Show( " Framework use");
         }
 
         private void txt_AlbumArtist_TextChanged(object sender, EventArgs e)
