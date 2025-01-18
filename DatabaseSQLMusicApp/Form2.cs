@@ -26,7 +26,7 @@ namespace DatabaseSQLMusicApp
             AlbumsDAO_Framework albumsDAO = new AlbumsDAO_Framework();
 
 
-            albumBindingSource.DataSource = albumsDAO.getAllAlbums();
+            albumBindingSource.DataSource = albumsDAO.GetAllAlbums();
 
             dataGridView1.DataSource = albumBindingSource;
 
@@ -111,7 +111,7 @@ namespace DatabaseSQLMusicApp
             };
 
             AlbumsDAO_Framework albumsDAO = new AlbumsDAO_Framework();
-             albumsDAO.addOneAlbum(album);
+             albumsDAO.AddOneAlbum(album);
             MessageBox.Show( " Framework use");
         }
 

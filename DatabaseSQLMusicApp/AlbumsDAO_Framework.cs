@@ -53,46 +53,65 @@ namespace DatabaseSQLMusicApp
                 }
             }
         }
-        public List<Album> getAllAlbums()
+        public List<AlbumFW> GetAllAlbums()
         {
-            //start with am empty list
-            List<Album> returnThease = new List<Album>();
-
-            //connect to the mysql server
-
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
 
 
 
-            //define the sql statement to fetch all albums
+            //With framework -- instead of this:
+            ////start with am empty list
+            //List<Album> returnThease = new List<Album>();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM ALBUMS", connection);
+            ////connect to the mysql server
 
-            using (MySqlDataReader reader = command.ExecuteReader())
+            //MySqlConnection connection = new MySqlConnection(connectionString);
+            //connection.Open();
+
+
+
+            ////define the sql statement to fetch all albums
+
+            //MySqlCommand command = new MySqlCommand("SELECT * FROM ALBUMS", connection);
+
+            //using (MySqlDataReader reader = command.ExecuteReader())
+            //{
+            //    while (reader.Read())
+
+            //    {
+            //        Album a = new Album
+            //        {
+            //            ID = reader.GetInt32(0),
+            //            AlbumName = reader.GetString(1),
+            //            ArtistName = reader.GetString(2),
+            //            Year = reader.GetInt32(3),
+            //            ImageURL = reader.GetString(4),
+            //            Description = reader.GetString(5)
+
+            //        };
+
+            //        returnThease.Add(a);
+
+            //    }
+            //}
+
+            //connection.Close();
+
+
+
+            using (var context = new AppDbContext())
             {
-                while (reader.Read())
+                // Fetch all albums from the database
+                List<AlbumFW> returnThease = context.albums.ToList(); // This will retrieve all records from the 'albums' table
 
+                // Optionally, print out the albums to check the results
+                foreach (AlbumFW album in returnThease)
                 {
-                    Album a = new Album
-                    {
-                        ID = reader.GetInt32(0),
-                        AlbumName = reader.GetString(1),
-                        ArtistName = reader.GetString(2),
-                        Year = reader.GetInt32(3),
-                        ImageURL = reader.GetString(4),
-                        Description = reader.GetString(5)
-
-                    };
-
-                    returnThease.Add(a);
-
+                    Console.WriteLine($"Album Name: {album.AlbumName}, Artist: {album.ArtistName}, Year: {album.Year}");
                 }
+                return returnThease;
             }
 
-            connection.Close();
-
-            return returnThease;
+          
 
         }
 
@@ -147,18 +166,18 @@ namespace DatabaseSQLMusicApp
 
         }
 
-        internal void addOneAlbum(AlbumFW album)
+        internal void AddOneAlbum(AlbumFW album)
         {
-
+            Console.WriteLine("adding album ");
             using (var context = new AppDbContext())
             {
                 var album2 = new AlbumFW
                 {
-                    AlbumName = "Album Name",
-                    ArtistName = "Artist Name",
-                    Year = 2025,
-                    ImageURL = "http://example.com/image.jpg",
-                    Description = "Album description"
+                    AlbumName = album.AlbumName,
+                    ArtistName = album.ArtistName,
+                    Year = album.Year,
+                    ImageURL = album.ImageURL,
+                    Description = album.Description
                 }; 
                 context.albums.Add(album2); 
                 context.SaveChanges();
