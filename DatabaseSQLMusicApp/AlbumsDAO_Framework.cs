@@ -12,7 +12,7 @@ namespace DatabaseSQLMusicApp
     {
         //public List <Album> albums = new List<Album>();
 
-        string connectionString = "datasource= localhost;port=3306;username=root;password=root;database=music2;";
+        string connectionString = "datasource= localhost;port=3306;username=root;password=1234578;database=music2;";
 
         public List<Album> getAllAlbums()
         {
