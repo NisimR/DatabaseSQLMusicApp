@@ -12,8 +12,47 @@ namespace DatabaseSQLMusicApp
     {
         //public List <Album> albums = new List<Album>();
 
-        string connectionString = "datasource= localhost;port=3306;username=root;password=1234578;database=music2;";
+        string connectionString = "datasource= localhost;port=3306;username=root;password=12345678;database=music2;";
 
+
+
+        public void Create3Mocks()
+        {
+            using (var context = new AppDbContext())
+            {
+                if (!context.albums.Any()) // If the table is empty
+                {
+                    context.albums.AddRange(
+                        new AlbumFW
+                        {
+                            AlbumName = "Mock Album 1",
+                            ArtistName = "Mock Artist 1",
+                            Year = 2025,
+                            ImageURL = "http://example.com/album1.jpg",
+                            Description = "Description of mock album 1"
+                        },
+                        new AlbumFW
+                        {
+                            AlbumName = "Mock Album 2",
+                            ArtistName = "Mock Artist 2",
+                            Year = 2026,
+                            ImageURL = "http://example.com/album2.jpg",
+                            Description = "Description of mock album 2"
+                        },
+                        new AlbumFW
+                        {
+                            AlbumName = "Mock Album 3",
+                            ArtistName = "Mock Artist 3",
+                            Year = 2027,
+                            ImageURL = "http://example.com/album3.jpg",
+                            Description = "Description of mock album 3"
+                        }
+                    );
+
+                    context.SaveChanges();
+                }
+            }
+        }
         public List<Album> getAllAlbums()
         {
             //start with am empty list
@@ -108,12 +147,12 @@ namespace DatabaseSQLMusicApp
 
         }
 
-        internal void addOneAlbum(Album2 album)
+        internal void addOneAlbum(AlbumFW album)
         {
 
             using (var context = new AppDbContext())
             {
-                var album2 = new Album2
+                var album2 = new AlbumFW
                 {
                     AlbumName = "Album Name",
                     ArtistName = "Artist Name",

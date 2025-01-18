@@ -101,7 +101,7 @@ namespace DatabaseSQLMusicApp
         {
             //add a new item to the database
 
-            Album2 album = new Album2
+            AlbumFW album = new AlbumFW
             {
                 AlbumName = txt_albumName.Text,
                 ArtistName = txt_albumArtist.Text,

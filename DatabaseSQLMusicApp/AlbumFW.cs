@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseSQLMusicApp
 {
-    public class Album2
+    public class AlbumFW
     {
         public int ID { get; set; }
         public String AlbumName { get; set; }

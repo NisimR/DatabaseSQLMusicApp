@@ -12,6 +12,16 @@ namespace DatabaseSQLMusicApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+            using (var context = new AppDbContext())
+            {
+                // Create database and table if they don't exist
+                context.InitializeDatabase();
+
+
+                AlbumsDAO_Framework a = new AlbumsDAO_Framework();
+                a.Create3Mocks();
+            }
+
         }
     }
 }
