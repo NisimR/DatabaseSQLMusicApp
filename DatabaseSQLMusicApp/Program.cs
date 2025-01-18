@@ -8,20 +8,24 @@ namespace DatabaseSQLMusicApp
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Initialize application settings
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
-            using (var context = new AppDbContext())
+
+            // Run the database operations on a background thread
+            Task.Run(() =>
             {
-                // Create database and table if they don't exist
-                context.InitializeDatabase();
+                using (var context = new AppDbContext())
+                {
+                    Console.WriteLine("Initializing Database...");
+                    context.InitializeDatabase();  // Initialize the database
 
+                    AlbumsDAO_Framework a = new AlbumsDAO_Framework();
+                    a.Create3Mocks();  // Create mock data
+                }
+            });
 
-                AlbumsDAO_Framework a = new AlbumsDAO_Framework();
-                a.Create3Mocks();
-            }
-
+            // Start the application form
+            Application.Run(new Form1());
         }
     }
 }
